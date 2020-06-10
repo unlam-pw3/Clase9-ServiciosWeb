@@ -21,6 +21,11 @@ namespace Servicios
             productoRepository.Crear(entity);
         }
 
+        public void Modificar(Producto entity)
+        {
+            productoRepository.Modificar(entity);
+        }
+
         public void Eliminar(int id)
         {
             productoRepository.Eliminar(id);

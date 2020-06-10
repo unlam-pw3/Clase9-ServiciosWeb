@@ -12,20 +12,45 @@ namespace ClaseServiciosWeb.Controllers
 {
     public class ProductosController : ApiController
     {
-        public List<ProductoDTO> Get()
+        ProductoServicio productoServicio;
+        public ProductosController()
         {
             PracticaEFEntities ctx = new PracticaEFEntities();
-            ProductoServicio productoServicio = new ProductoServicio(ctx);
-
+            productoServicio = new ProductoServicio(ctx);
+        }
+        public List<ProductoDTO> Get()
+        {
             List<Producto> productosEF = productoServicio.ObtenerTodos();
 
             //lista resultado a devolver
             return ProductoDTO.MapearListaEF(productosEF);
         }
 
+        [HttpGet]
+        public ProductoDTO Get(int id)
+        {
+            Producto productoEF = productoServicio.ObtenerPorId(id);
+
+            //lista resultado a devolver
+            return new ProductoDTO(productoEF);
+        }
+
         public string Post(ProductoDTO prod)
         {
+            productoServicio.Crear(prod.MapearEF());
             return $"Producto {prod.Nombre} agregado exitosamente";
+        }
+
+        public string Put(ProductoDTO prod)
+        {
+            productoServicio.Modificar(prod.MapearEF());
+            return $"Producto ID: {prod.IdProducto} - {prod.Nombre} modificado exitosamente";
+        }
+
+        public string Delete(ProductoDTO prod)
+        {
+            productoServicio.Eliminar(prod.IdProducto);
+            return $"Producto ID: {prod.IdProducto} eliminado exitosamente";
         }
     }
 }
