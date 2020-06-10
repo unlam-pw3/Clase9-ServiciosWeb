@@ -1,4 +1,6 @@
 ﻿using ClaseServiciosWeb.Models;
+using DAL;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +14,13 @@ namespace ClaseServiciosWeb.Controllers
     {
         public List<ProductoDTO> Get()
         {
-            List<ProductoDTO> productos = new List<ProductoDTO>();
-            productos.Add(new ProductoDTO() { IdProducto = 1, Nombre = "Pelota", Precio = 5000 });
-            productos.Add(new ProductoDTO() { IdProducto = 2, Nombre = "Camiseta", Precio = 7000 });
-            productos.Add(new ProductoDTO() { IdProducto = 3, Nombre = "Botines", Precio = 4000 });
-            return productos;
+            PracticaEFEntities ctx = new PracticaEFEntities();
+            ProductoServicio productoServicio = new ProductoServicio(ctx);
+
+            List<Producto> productosEF = productoServicio.ObtenerTodos();
+
+            //lista resultado a devolver
+            return ProductoDTO.MapearListaEF(productosEF);
         }
 
         public string Post(ProductoDTO prod)
