@@ -11,9 +11,13 @@ namespace ClaseServiciosWeb.Models
         public int IdProducto { get; set; }
         public string Nombre { get; set; }
         public decimal Precio { get; set; }
+
+        public Nullable<int> IdMarca { get; set; }
+        public MarcaDTO Marca { get; set; }
+
         public ProductoDTO()
         {
-
+            
         }
 
         public ProductoDTO(Producto productoEntidad)
@@ -21,6 +25,10 @@ namespace ClaseServiciosWeb.Models
             this.IdProducto = productoEntidad.IdProducto;
             this.Nombre = productoEntidad.Nombre;
             this.Precio = productoEntidad.Precio;
+            if (productoEntidad.Marca != null)
+            {
+                this.Marca = new MarcaDTO(productoEntidad.Marca);
+            }
         }
 
         public Producto MapearEF()
@@ -29,6 +37,10 @@ namespace ClaseServiciosWeb.Models
             p.IdProducto = this.IdProducto;
             p.Nombre = this.Nombre;
             p.Precio = this.Precio;
+            if (this.Marca != null)
+            {
+                p.Marca = this.Marca.MapearEF();
+            }
 
             return p;
         }
