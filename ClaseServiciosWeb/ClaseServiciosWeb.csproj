@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Productos.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +120,10 @@
     </Compile>
     <Compile Include="Models\MarcaDTO.cs" />
     <Compile Include="Models\ProductoDTO.cs" />
+    <Compile Include="Productos.asmx.cs">
+      <DependentUpon>Productos.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
