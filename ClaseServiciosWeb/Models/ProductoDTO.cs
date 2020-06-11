@@ -20,12 +20,12 @@ namespace ClaseServiciosWeb.Models
             
         }
 
-        public ProductoDTO(Producto productoEntidad)
+        public ProductoDTO(Producto productoEntidad, bool mapearMarca = true)
         {
             this.IdProducto = productoEntidad.IdProducto;
             this.Nombre = productoEntidad.Nombre;
             this.Precio = productoEntidad.Precio;
-            if (productoEntidad.Marca != null)
+            if (mapearMarca && productoEntidad.Marca != null)
             {
                 this.Marca = new MarcaDTO(productoEntidad.Marca);
             }
@@ -57,13 +57,13 @@ namespace ClaseServiciosWeb.Models
             return productosEF;
         }
 
-        public static List<ProductoDTO> MapearListaEF(List<Producto> productosEF)
+        public static List<ProductoDTO> MapearListaEF(List<Producto> productosEF, bool mapearMarca = true)
         {
             List<ProductoDTO> productosDTO = new List<ProductoDTO>();
 
             foreach (var prodEF in productosEF)
             {
-                productosDTO.Add(new ProductoDTO(prodEF));
+                productosDTO.Add(new ProductoDTO(prodEF, mapearMarca));
             }
 
             return productosDTO;

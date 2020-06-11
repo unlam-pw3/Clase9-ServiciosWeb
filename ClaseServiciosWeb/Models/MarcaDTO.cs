@@ -22,13 +22,13 @@ namespace ClaseServiciosWeb.Models
         {
             this.IdMarca = marcaEF.IdMarca;
             this.Nombre = marcaEF.Nombre;
+            this.Producto = ProductoDTO.MapearListaEF(marcaEF.Producto.ToList(), false);
         }
         public Marca MapearEF()
         {
             Marca m = new Marca();
             m.IdMarca = this.IdMarca;
             m.Nombre = this.Nombre;
-            //m.Producto = this.Producto;
 
             return m;
         }
