@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ObtenerTodos">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerTodosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerTodosResult" type="tns:ArrayOfProductoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProductoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProductoDTO" nillable="true" type="tns:ProductoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductoDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdProducto" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Precio" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMarca" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Marca" type="tns:MarcaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MarcaDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdMarca" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Producto" type="tns:ArrayOfProductoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerPorIdResult" type="tns:ProductoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Crear">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prod" type="tns:ProductoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CrearResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CrearResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Modificar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prod" type="tns:ProductoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModificarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Eliminar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prod" type="tns:ProductoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EliminarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ObtenerTodosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerTodos" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTodosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerTodosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerPorId" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="CrearSoapIn">
+    <wsdl:part name="parameters" element="tns:Crear" />
+  </wsdl:message>
+  <wsdl:message name="CrearSoapOut">
+    <wsdl:part name="parameters" element="tns:CrearResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarSoapIn">
+    <wsdl:part name="parameters" element="tns:Modificar" />
+  </wsdl:message>
+  <wsdl:message name="ModificarSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarSoapIn">
+    <wsdl:part name="parameters" element="tns:Eliminar" />
+  </wsdl:message>
+  <wsdl:message name="EliminarSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProductosSoap">
+    <wsdl:operation name="ObtenerTodos">
+      <wsdl:input message="tns:ObtenerTodosSoapIn" />
+      <wsdl:output message="tns:ObtenerTodosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPorId">
+      <wsdl:input message="tns:ObtenerPorIdSoapIn" />
+      <wsdl:output message="tns:ObtenerPorIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Crear">
+      <wsdl:input message="tns:CrearSoapIn" />
+      <wsdl:output message="tns:CrearSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Modificar">
+      <wsdl:input message="tns:ModificarSoapIn" />
+      <wsdl:output message="tns:ModificarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar">
+      <wsdl:input message="tns:EliminarSoapIn" />
+      <wsdl:output message="tns:EliminarSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductosSoap" type="tns:ProductosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerTodos">
+      <soap:operation soapAction="http://tempuri.org/ObtenerTodos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPorId">
+      <soap:operation soapAction="http://tempuri.org/ObtenerPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Crear">
+      <soap:operation soapAction="http://tempuri.org/Crear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Modificar">
+      <soap:operation soapAction="http://tempuri.org/Modificar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar">
+      <soap:operation soapAction="http://tempuri.org/Eliminar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductosSoap12" type="tns:ProductosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerTodos">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerTodos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPorId">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerPorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Crear">
+      <soap12:operation soapAction="http://tempuri.org/Crear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Modificar">
+      <soap12:operation soapAction="http://tempuri.org/Modificar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar">
+      <soap12:operation soapAction="http://tempuri.org/Eliminar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Productos">
+    <wsdl:port name="ProductosSoap" binding="tns:ProductosSoap">
+      <soap:address location="https://localhost:44306/Productos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProductosSoap12" binding="tns:ProductosSoap12">
+      <soap12:address location="https://localhost:44306/Productos.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

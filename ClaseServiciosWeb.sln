@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicios", "Servicios\Servicios.csproj", "{31E646EC-E484-4B94-8ABB-4FA867D4B1CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{8325AC10-D268-4410-BEAC-7BCCA1CEEF6B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{41F2EB94-EE1E-47E1-BF43-2086B21BA663} = {41F2EB94-EE1E-47E1-BF43-2086B21BA663}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +32,10 @@ Global
 		{31E646EC-E484-4B94-8ABB-4FA867D4B1CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31E646EC-E484-4B94-8ABB-4FA867D4B1CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31E646EC-E484-4B94-8ABB-4FA867D4B1CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8325AC10-D268-4410-BEAC-7BCCA1CEEF6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8325AC10-D268-4410-BEAC-7BCCA1CEEF6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8325AC10-D268-4410-BEAC-7BCCA1CEEF6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8325AC10-D268-4410-BEAC-7BCCA1CEEF6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

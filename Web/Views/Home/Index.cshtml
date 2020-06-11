@@ -1,0 +1,22 @@
+﻿@model Web.ServiceASMX.ProductoDTO[]
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado Productos obtenidos de ASMX Remoto</h2>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+    </tr>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>@p.Nombre</td>
+            <td>@p.Precio</td>
+        </tr>
+    }
+</table>
+
+
