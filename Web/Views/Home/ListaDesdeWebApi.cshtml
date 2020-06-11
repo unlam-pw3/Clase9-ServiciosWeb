@@ -1,0 +1,21 @@
+﻿@model List<Web.Models.ProductoDTO>
+@{
+    ViewBag.Title = "ListaDesdeWebApi";
+}
+
+
+<h2>Listado Productos obtenidos de Web Api Remoto</h2>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+    </tr>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>@p.Nombre</td>
+        </tr>
+    }
+</table>
+
+
