@@ -6,6 +6,7 @@
             type: 'GET',
             url: 'https://localhost:44306/api/productos',
             dataType: 'json',
+            crossDomain: true,
             success: function (data) {
 
                 tblProductos.empty();
