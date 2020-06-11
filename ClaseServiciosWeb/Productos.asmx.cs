@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ClaseServiciosWeb.Models;
+using DAL;
+using Servicios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,11 +19,50 @@ namespace ClaseServiciosWeb
     //[System.Web.Script.Services.ScriptService]
     public class Productos : System.Web.Services.WebService
     {
+        ProductoServicio productoServicio;
+        public Productos()
+        {
+            PracticaEFEntities ctx = new PracticaEFEntities();
+            productoServicio = new ProductoServicio(ctx);
+        }
 
         [WebMethod]
-        public string HelloWorld()
+        public List<ProductoDTO> ObtenerTodos()
         {
-            return "Hello World";
+            List<Producto> productosEF = productoServicio.ObtenerTodos();
+
+            //lista resultado a devolver
+            return ProductoDTO.MapearListaEF(productosEF);
+        }
+
+        [WebMethod]
+        public ProductoDTO ObtenerPorId(int id)
+        {
+            Producto productoEF = productoServicio.ObtenerPorId(id);
+
+            //lista resultado a devolver
+            return new ProductoDTO(productoEF);
+        }
+
+        [WebMethod]
+        public string Crear(ProductoDTO prod)
+        {
+            productoServicio.Crear(prod.MapearEF());
+            return $"Producto {prod.Nombre} agregado exitosamente";
+        }
+
+        [WebMethod]
+        public string Modificar(ProductoDTO prod)
+        {
+            productoServicio.Modificar(prod.MapearEF());
+            return $"Producto ID: {prod.IdProducto} - {prod.Nombre} modificado exitosamente";
+        }
+
+        [WebMethod]
+        public string Eliminar(ProductoDTO prod)
+        {
+            productoServicio.Eliminar(prod.IdProducto);
+            return $"Producto ID: {prod.IdProducto} eliminado exitosamente";
         }
     }
 }

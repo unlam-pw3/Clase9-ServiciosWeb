@@ -1,0 +1,331 @@
+{
+	"info": {
+		"_postman_id": "c897354b-2622-48cc-a16e-b6fb1834b336",
+		"name": "PW3 - Servicios - Productos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ASMX",
+			"item": [
+				{
+					"name": "ObtenerTodos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <ObtenerTodos xmlns=\"http://tempuri.org/\" />\r\n  </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44306/Productos.asmx?op=ObtenerTodos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44306",
+							"path": [
+								"Productos.asmx"
+							],
+							"query": [
+								{
+									"key": "op",
+									"value": "ObtenerTodos"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerPorId",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "text/xml; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <ObtenerPorId xmlns=\"http://tempuri.org/\">\r\n      <id>4</id>\r\n    </ObtenerPorId>\r\n  </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44306/Productos.asmx?op=ObtenerTodos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44306",
+							"path": [
+								"Productos.asmx"
+							],
+							"query": [
+								{
+									"key": "op",
+									"value": "ObtenerTodos"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "text/xml; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Crear xmlns=\"http://tempuri.org/\">\r\n      <prod>\r\n        <IdProducto>0</IdProducto>\r\n        <Nombre>Producto Nuevo con Marca</Nombre>\r\n        <Precio>100</Precio>\r\n      </prod>\r\n    </Crear>\r\n  </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44306/Productos.asmx",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44306",
+							"path": [
+								"Productos.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "text/xml; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Modificar xmlns=\"http://tempuri.org/\">\r\n      <prod>\r\n        <IdProducto>15</IdProducto>\r\n        <Nombre>Producto Nuevo sin Marca</Nombre>\r\n        <Precio>100</Precio>\r\n      </prod>\r\n    </Modificar>\r\n  </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44306/Productos.asmx",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44306",
+							"path": [
+								"Productos.asmx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "text/xml; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Eliminar xmlns=\"http://tempuri.org/\">\r\n      <prod>\r\n        <IdProducto>15</IdProducto>\r\n      </prod>\r\n    </Eliminar>\r\n  </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44306/Productos.asmx",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44306",
+							"path": [
+								"Productos.asmx"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "WEB API",
+			"item": [
+				{
+					"name": "Productos API Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"IdProducto\": 1,\r\n        \"Nombre\": \"Medias de futbol\",\r\n        \"Precio\": 200.0\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44306/api/productos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44306",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Productos API - Get Por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44306/api/productos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44306",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Productos API - Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44306/api/productos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44306",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Productos API Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"IdProducto\": 1,\r\n        \"Nombre\": \"Pechera\",\r\n        \"Precio\": 150.0\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44306/api/productos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44306",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Productos API Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"IdProducto\": 1\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44306/api/productos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44306",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
